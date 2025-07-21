@@ -1,16 +1,14 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require('puppeteer');
+
 
 async function scrapeMeesho(query) {
   const url = `https://www.meesho.com/search?q=${query}`;
 
   const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-blink-features=AutomationControlled",
-    ],
-  });
+  headless: true,
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+});
+
 
   const page = await browser.newPage();
 
