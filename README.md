@@ -10,7 +10,9 @@ CompareKart is a full-stack web application that lets users search and compare p
 
 ## Tech Stack
 Frontend :  React, Tailwind CSS, Axios, NProgress
+
 Backend  :  Node.js, Express, Cheerio, Puppeteer
+
 Scraping Targets : Amazon, Meesho
 
 
