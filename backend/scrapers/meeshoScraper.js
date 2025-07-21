@@ -29,29 +29,31 @@ async function scrapeMeesho(query) {
     // 👇 Scroll to load all content
     await autoScroll(page);
 
-    const products = await page.evaluate(() => {
-      const items = [];
-      const productCards = document.querySelectorAll('li[data-testid="product-card"]');
+  const products = await page.evaluate(() => {
+  const items = [];
 
-      productCards.forEach((card) => {
-        const name = card.querySelector("p")?.innerText?.trim();
-        const price = card.querySelector("h5")?.innerText?.trim();
-        const image = card.querySelector("img")?.src;
-        const link = card.querySelector("a")?.href;
+  const productCards = document.querySelectorAll('a[href*="/products/"]'); // fallback: stable href
 
-        if (name && price && image && link) {
-          items.push({
-            name,
-            price,
-            image,
-            link: "https://www.meesho.com" + link,
-            source: "meesho",
-          });
-        }
+  productCards.forEach((card) => {
+    const name = card.querySelector("p")?.innerText?.trim();
+    const price = card.querySelector("h5")?.innerText?.trim();
+    const image = card.querySelector("img")?.src;
+    const link = card.href;
+
+    if (name && price && image && link) {
+      items.push({
+        name,
+        price,
+        image,
+        link,
+        source: "meesho",
       });
+    }
+  });
 
-      return items.slice(0, 5); // Top 5 for performance
-    });
+  return items.slice(0, 5);
+});
+
 
     await browser.close();
     return products;
