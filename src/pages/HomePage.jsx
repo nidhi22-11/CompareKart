@@ -26,7 +26,7 @@ const HomePage = () => {
 
       setProducts(combined);
     } catch (error) {
-      console.error('❌ Error fetching products:', error);
+      console.error('Error fetching products:', error);
     }
     finally {
     NProgress.done();

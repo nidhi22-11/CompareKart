@@ -17,7 +17,7 @@ const Breadcrumb = ({ currentPage }) => {
         onClick={() => navigate("/")}
         className="hover:underline text-[#752a37] font-medium"
       >
-        🔍 Search Results
+        🔍Search Results
       </button>
       <span>/</span>
       <span className="text-gray-900 font-semibold"> {currentPage}</span>

@@ -4,7 +4,7 @@ import axios from "axios";
 import Breadcrumb from "../components/Breadcrumb";
 import ProductCard from "../components/ProductCard";
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css'; // Required CSS
+import 'nprogress/nprogress.css'; 
 import Footer from "../components/Footer";
 
 
@@ -29,7 +29,7 @@ const [showDesc, setShowDesc] = useState(false);
       const all = response.data?.[otherSource] || [];
       setMatches(all.slice(0, 5));
     } catch (error) {
-      console.error("❌ Failed to fetch matches", error);
+      console.error("Failed to fetch matches", error);
     } finally {
       NProgress.done(); // Finish bar
     }

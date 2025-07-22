@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
       meesho: meeshoResults,
     });
   } catch (err) {
-    console.error("❌ Scraper Error:", err);
+    console.error(" Scraper Error:", err);
     res.status(500).json({ error: "Scraping failed" });
   }
 });
