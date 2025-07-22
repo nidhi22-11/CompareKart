@@ -1,21 +1,18 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require("puppeteer");
+const chromium = require("chromium");
 
 async function scrapeMeesho(query) {
   const url = `https://www.meesho.com/search?q=${query}`;
 
   try {
-    const chromium = require("chromium");
-
-const browser = await puppeteer.launch({
-  executablePath: chromium.path,
-  headless: true,
-  args: ['--no-sandbox', '--disable-setuid-sandbox']
-});
-
+    const browser = await puppeteer.launch({
+      executablePath: chromium.path,
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
 
     const page = await browser.newPage();
 
-    // Pretend to be a real user
     await page.setUserAgent(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
       "(KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
@@ -30,40 +27,32 @@ const browser = await puppeteer.launch({
       timeout: 60000,
     });
 
-    // 👇 Scroll to load all content
+    // 👇 Scroll + wait extra to allow dynamic content
     await autoScroll(page);
+    await page.waitForTimeout(4000); // Give Meesho time to load cards
 
-  const products = await page.evaluate(() => {
-  const items = [];
+    const products = await page.evaluate(() => {
+      const items = [];
+      const cards = document.querySelectorAll('a[href*="/products/"]');
 
-  const productCards = document.querySelectorAll('a[href*="/products/"]'); // fallback: stable href
+      cards.forEach((card) => {
+        const name = card.querySelector("p")?.innerText?.trim();
+        const price = card.querySelector("h5")?.innerText?.trim();
+        const image = card.querySelector("img")?.src;
+        const link = card.href;
 
-  productCards.forEach((card) => {
-    const name = card.querySelector("p")?.innerText?.trim();
-    const price = card.querySelector("h5")?.innerText?.trim();
-    const image = card.querySelector("img")?.src;
-    const link = card.href;
-
-    if (name && price && image && link) {
-      items.push({
-        name,
-        price,
-        image,
-        link,
-        source: "meesho",
+        if (name && price && image && link) {
+          items.push({ name, price, image, link, source: "meesho" });
+        }
       });
-    }
-  });
 
-  return items.slice(0, 5);
-});
-
+      return items.slice(0, 5);
+    });
 
     await browser.close();
     return products;
-
-  } catch (error) {
-    console.error("❌ Meesho Scraper Error:", error);
+  } catch (err) {
+    console.error("❌ Meesho Scraper Error:", err);
     return [];
   }
 }
