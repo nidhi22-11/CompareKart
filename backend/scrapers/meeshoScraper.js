@@ -28,8 +28,10 @@ async function scrapeMeesho(query) {
     });
 
     // 👇 Scroll + wait extra to allow dynamic content
-    await autoScroll(page);
-   await new Promise((res) => setTimeout(res, 5000));
+   await autoScroll(page);
+await new Promise((res) => setTimeout(res, 5000));
+await page.waitForSelector('a[href*="/products/"]', { timeout: 10000 });
+
 
 
     const products = await page.evaluate(() => {
