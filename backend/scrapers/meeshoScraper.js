@@ -4,10 +4,14 @@ async function scrapeMeesho(query) {
   const url = `https://www.meesho.com/search?q=${query}`;
 
   try {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
+    const chromium = require("chromium");
+
+const browser = await puppeteer.launch({
+  executablePath: chromium.path,
+  headless: true,
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+});
+
 
     const page = await browser.newPage();
 
