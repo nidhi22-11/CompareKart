@@ -29,7 +29,8 @@ async function scrapeMeesho(query) {
 
     // 👇 Scroll + wait extra to allow dynamic content
     await autoScroll(page);
-    await page.waitForTimeout(4000); // Give Meesho time to load cards
+   await new Promise((res) => setTimeout(res, 5000));
+
 
     const products = await page.evaluate(() => {
       const items = [];
