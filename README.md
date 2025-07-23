@@ -1,4 +1,4 @@
-<img width="1920" height="1008" alt="Screenshot 2025-07-23 100732" src="https://github.com/user-attachments/assets/0d82a013-f33a-4b00-9af3-3509d80e1b24" /><img width="1920" height="1008" alt="Screenshot 2025-07-23 100732" src="https://github.com/user-attachments/assets/7c70c2d7-7db9-44ce-8e11-12b63684c9d3" />#  CompareKart — Real-Time Product Comparison App
+##  CompareKart — Real-Time Product Comparison App
 
 CompareKart is a full-stack web application that lets users search and compare products from Amazon and Meesho in real-time.
 
@@ -42,6 +42,8 @@ Frontend (Vercel): [https://compare-kart-git-main-nidhi-kumaris-projects-f55f805
 💻 [GitHub](https://github.com/nidhi22-11)
 
 ## 📷 Screenshots :
+
+<img width="1920" height="1008" alt="Screenshot 2025-07-23 100723" src="https://github.com/user-attachments/assets/fa7aff73-9e9a-4d3f-8c31-69e241446423" />
 
 <img width="1920" height="1008" alt="Screenshot 2025-07-23 100723" src="https://github.com/user-attachments/assets/a6d4ae3f-551b-4e89-83c5-19132993d4d1" />
 
