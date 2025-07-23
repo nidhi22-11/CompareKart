@@ -13,6 +13,7 @@ CompareKart is a full-stack web application that lets users search and compare p
 
 ## Live Demo
 Frontend (Vercel): [https://compare-kart-git-main-nidhi-kumaris-projects-f55f805c.vercel.app](https://compare-kart-git-main-nidhi-kumaris-projects-f55f805c.vercel.app)
+
  Backend API: **WIP (hosted on Railway, temporary downtime)**
  
 ## Tech Stack
@@ -42,8 +43,8 @@ Frontend (Vercel): [https://compare-kart-git-main-nidhi-kumaris-projects-f55f805
 💻 [GitHub](https://github.com/nidhi22-11)
 
 ## 📷 Screenshots :
+<img width="1920" height="1008" alt="Screenshot 2025-07-23 100651" src="https://github.com/user-attachments/assets/81063e38-c5e7-495a-b2c8-49306373a69a" />
 
-<img width="1920" height="1008" alt="Screenshot 2025-07-23 100723" src="https://github.com/user-attachments/assets/fa7aff73-9e9a-4d3f-8c31-69e241446423" />
 
 <img width="1920" height="1008" alt="Screenshot 2025-07-23 100723" src="https://github.com/user-attachments/assets/a6d4ae3f-551b-4e89-83c5-19132993d4d1" />
 
